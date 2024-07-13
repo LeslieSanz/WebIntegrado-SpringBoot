@@ -7,9 +7,9 @@ package S15.spring2.modelo;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
-public interface Iproyecto extends CrudRepository<Proyectos, Integer> {
+public interface IContacto extends CrudRepository<Contacto, Integer> {
     //Crear un metodo
-    List<Proyectos> findByNombreContaining(String palabra);
+    List<Contacto> findByNombreContaining(String palabra);
     
     
     

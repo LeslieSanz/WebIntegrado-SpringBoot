@@ -4,7 +4,8 @@
  */
 package S15.spring2;
 //
-import S15.spring2.modelo.Proyecto;
+import S15.spring2.modelo.Contacto;
+import S15.spring2.modelo.IContacto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,15 +17,16 @@ import S15.spring2.modelo.Iproyecto;
 
 @Controller
 @RequestMapping("/")
-public class ControlerEmpleado {
+public class ControlerContacto {
     @Autowired
-    private Iproyecto proyecto;
+    private IContacto servicio;
+    private Contacto contac;
     @GetMapping("/listarProyectos")
     public String listado(Model modelo){
-        modelo.addAttribute("listado", proyecto.findAll());
+        modelo.addAttribute("listado", servicio.findAll());
         double sm=0;
-        for(Proyecto x:proyecto.findAll()){
-            sm+=x.costo();
+        for(Contacto x:servicio.findAll()){
+            sm+=1;
         }
         
         modelo.addAttribute("total",sm);
@@ -37,9 +39,9 @@ public class ControlerEmpleado {
     }
     
     @PostMapping("/saveProyectos")
-    public String graba(@Validated Proyecto p, Model modelo){
-        proyecto.save(p);
-        modelo.addAttribute("proyecto", new Proyecto());
+    public String graba(@Validated Contacto p, Model modelo){
+        servicio.save(p);
+        modelo.addAttribute("proyecto", new Contacto());
         return "redirect:/listar";
     }
    
