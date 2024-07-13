@@ -15,10 +15,19 @@ public class Contacto {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     
     int id;
+    String nombre;
     String mensaje;
     String fecha;
 
     public Contacto() {
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     

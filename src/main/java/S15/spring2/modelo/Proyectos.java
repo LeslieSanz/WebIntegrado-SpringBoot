@@ -16,7 +16,7 @@ public class Proyectos {
     
     int id;
     String nombre;
-    String Descripción;
+    String Descripcion;
 
     public Proyectos() {
     }
@@ -33,13 +33,15 @@ public class Proyectos {
         this.nombre = nombre;
     }
 
-    public String getDescripción() {
-        return Descripción;
+    public String getDescripcion() {
+        return Descripcion;
     }
 
-    public void setDescripción(String Descripción) {
-        this.Descripción = Descripción;
+    public void setDescripcion(String Descripcion) {
+        this.Descripcion = Descripcion;
     }
+
+    
 
     
     

@@ -15,7 +15,7 @@ public class proyInteres {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     
     int id;
-    String proyecto;
+    String nombre;
     String nomLista;
 
     public proyInteres() {
@@ -29,12 +29,12 @@ public class proyInteres {
         this.id = id;
     }
 
-    public String getProyecto() {
-        return proyecto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setProyecto(String proyecto) {
-        this.proyecto = proyecto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getNomLista() {
