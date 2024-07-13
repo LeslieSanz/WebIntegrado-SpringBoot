@@ -53,6 +53,13 @@
                         </thead>
                         <tbody>
                        
+                            <tr th:each="contact : ${listado}">
+                        <td th:text="${contact.id}"></td>
+                        <td th:text="${contact.nombre}"></td>
+                        <td th:text="${contact.mensaje}"></td>
+                        <td th:text="${contact.fecha}"></td>
+              
+                    </tr>
                         </tbody>
                     </table>
                 </div>

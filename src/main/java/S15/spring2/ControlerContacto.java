@@ -19,17 +19,13 @@ import S15.spring2.modelo.IContacto;
 public class ControlerContacto {
     @Autowired
     private IContacto servicio;
-    private Contacto contac;
+
     @GetMapping("/listarProyectos")
+    
+    
     public String listado(Model modelo){
         modelo.addAttribute("listado", servicio.findAll());
-        double sm=0;
-        for(Contacto x:servicio.findAll()){
-            sm+=1;
-        }
-        
-        modelo.addAttribute("total",sm);
-        return "menu";
+        return "usuarios";
     }
     
     @GetMapping("/usuarios")
