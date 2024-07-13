@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dashboard</title>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="icon" th:href="@{/img/LOGO AZUL.png}" type="image/png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="ColorlibHQ">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.1.0/styles/overlayscrollbars.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.3.0/css/all.min.css">
+        <link th:href="@{/bootstrap/adminlte.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/bootstrap/dataTables.bootstrap4.min.css}" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css">
+    </head>
+    <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+        <nav class="app-header navbar navbar-expand bg-body">
+            <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                        <i class="fa-solid fa-bars"></i>
+                    </a>
+                </li>
+                <li class="nav-item d-none d-md-block">
+                    <a href="#" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item d-none d-md-block">
+                    <a href="#" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                        <i class="fa-solid fa-search"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown user-menu">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <img th:src="@{/img/user.png}" class="user-image rounded-circle shadow" alt="User Image">
+                        <span class="d-none d-md-inline">Luis Miguel Paz</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                        <li class="user-header text-bg-primary">
+                            <img th:src="@{/img/user.png}" class="rounded-circle shadow" alt="User Image">
+                            <p>
+                                Luis Miguel Paz - Web Developer
+                                <small>Member since Nov. 2023</small>
+                            </p>
+                        </li>
+                        <li class="user-body">
+                            <div class="row">
+                                <div class="col-4 text-center">
+                                    <a href="#">Seguidores</a>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <a href="#">Ventas</a>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <a href="#">Amigos</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="user-footer">
+                            <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                            <a href="#" class="btn btn-default btn-flat float-end">Cerrar sesiÃ³n</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </nav>
+        <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+            <!-- begin::Sidebar Brand -->
+<div class="sidebar-brand">
+    <!-- begin::Brand Link -->
+    <a th:href="@{/vistas.admin/menu}" class="brand-link">
+        <!-- begin::Brand Image -->
+        <img th:src="@{/img/LOGO BLANCO.png}" alt="Logo" class="brand-image opacity-75 shadow">
+        <!-- end::Brand Image -->
+        <!-- begin::Brand Text -->
+        <span class="brand-text fw-light"><strong>Lizbet Huamani</strong></span>
+        <!-- end::Brand Text -->
+    </a>
+    <!-- end::Brand Link -->
+</div>
+<!-- end::Sidebar Brand -->
+<!-- begin::Sidebar Wrapper -->
+<div class="sidebar-wrapper">
+    <nav class="mt-2">
+        <!-- begin::Sidebar Menu -->
+        <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link">
+                    <i class="nav-icon fa-solid fa-table"></i>
+                    <p>
+                        Mantenimiento
+                        <i class="nav-arrow fa-solid fa-angle-right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a th:href="@{/usuarios}" class="nav-link">
+                            <i class="nav-icon fa-solid fa-user"></i>
+                            <p>Usuarios</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/controlCursos?opc=1}" class="nav-link">
+                            <i class="nav-icon fa-solid fa-book"></i>
+                            <p>Cursos</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/ProyectoControl?opc=1}" class="nav-link">
+                            <i class="nav-icon fa-solid fa-house"></i>
+                            <p>Proyectos</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link">
+                    <i class="fa-brands fa-searchengin"></i>
+                    <p>
+                        Consultas
+                        <i class="nav-arrow fa-solid fa-angle-right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a th:href="@{/vistas.admin/consultasCompra}" class="nav-link">
+                            <i class="nav-icon fa-solid fa-shop"></i>
+                            <p>Compras</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/vistas.admin/consultasCurso}" class="nav-link">
+                            <i class="nav-icon fa-solid fa-book"></i>
+                            <p>Cursos</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a th:href="@{/vistas.admin/consultasProyecto}" class="nav-link">
+                            <i class="nav-icon fa-solid fa-shop"></i>
+                            <p>Proyectos</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <p>GrÃ¡ficos</p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a th:href="@{/vistas.admin/graficoCompras}" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>Reportes de Compras</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/vistas.admin/graficoCursos}" class="nav-link">
+                            <i class="nav-icon fas fa-chart-area"></i>
+                            <p>Reporte de Cursos</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/vistas.admin/graficoProyecto}" class="nav-link">
+                            <i class="nav-icon fas fa-chart-bar"></i>
+                            <p>Cantidad de Proyectos</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- end::Sidebar Menu -->
+    </nav>
+</div>
+<!-- end::Sidebar Wrapper -->
+
+        </aside>
+        <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.1.0/browser/overlayscrollbars.browser.es6.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+        <script th:src="@{/js/adminlte.js}" type="text/javascript"></script>
+        <script>
+            // JavaScript content
+        </script>
+    </body>
+</html>
