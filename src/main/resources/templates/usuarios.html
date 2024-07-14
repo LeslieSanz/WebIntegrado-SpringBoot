@@ -59,14 +59,23 @@
                                             <td th:text="${contact.mensaje}"></td>
                                             <td th:text="${contact.fecha}"></td>
                                             <td>
-                                                <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modificarCurso" onclick="editarCurso('<%= c.getIdCurso() %>', '<%= c.getNombre() %>', '<%= c.getPrecio() %>', '<%= c.getCategoría() %>')">
+                                                <a th:href="@{/editar/{id}(id=${contact.id})}" class="btn btn-warning btn-sm edit-user">
                                                     <i class="fas fa-edit"></i> 
+
                                                 </a>
+
                                             </td>
 
-                                            <td><a href="${pageContext.request.contextPath}/controlCursos?opc=4&id=<%=c.getIdCurso()%>" class="btn btn-danger btn-sm delete-course" data-course-id="<%=c.getIdCurso()%>">
-                                                    <i class="fas fa-trash"></i>
-                                                </a></td>  
+
+                                            <td>
+                                                <form action="/eliminar" method="post" style="display:inline;">
+                                                    <input type="hidden" name="ids" th:value="${contact.id}" />
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -74,6 +83,10 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
             </main>
         </div>
 

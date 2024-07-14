@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Usuarios</title>
+        <link rel="icon" th:href="@{/img/LOGO AZUL.png}" type="image/png">
+        <!-- Otros recursos como CSS y scripts -->
+    </head>
+    <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+        <!-- App Wrapper -->
+        <div class="app-wrapper">
+            <!-- Incluir el menú -->
+            <div th:replace="menu"></div>
+
+            <!-- Contenido principal -->
+            <main class="app-main">
+
+               <div class="container mt-4">
+    <form action="/editar" method="POST" class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h4>Actualizar Mensaje </h4>
+            </div>
+             <div class="card-body">
+                 <div class="form-group">
+                     <label>ID</label>
+                     <input type="text" name="id" class="form-control" readonly="readonly" th:value="${contact.id}">
+                 </div>
+                 <div class="form-group">
+                     <label>ASUNTO</label>
+                     <input type="text" name="nombre" class="form-control" th:value="${contact.nombre}">
+                 </div>
+                 <div class="form-group">
+                     <label>MENSAJE</label>
+                     <input type="text" name="mensaje" class="form-control" th:value="${contact.mensaje}">
+                 </div>
+                 <div class="form-group">
+                     <label>FECHA</label>
+                     <input type="text" name="fecha" class="form-control" readonly="readonly" th:value="${contact.fecha}">
+                 </div>
+             </div>
+             <div class="card-footer">
+                 <input type="submit" value="Guardar" class="btn btn-info">
+                 <a href="/usuarios" class="btn btn-link">Regresar</a>
+             </div>
+         </div>
+     </form>
+ </div>
+
+            </main>
+        </div>
+
+        <!-- Scripts al final del cuerpo -->
+    </body>
+</html>
