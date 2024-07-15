@@ -1,51 +1,58 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Enlistar Cursos o Proyectos</title>
-    <link rel="icon" th:href="@{/img/LOGO AZUL.png}" type="image/png">
-    <!-- Otros recursos como CSS y scripts -->
-</head>
-<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <head>
+        <meta charset="UTF-8">
+        <title>Enlistar Cursos o Proyectos</title>
+        <link rel="icon" th:href="@{/img/LOGO AZUL.png}" type="image/png">
+        <!-- Otros recursos como CSS y scripts -->
+    </head>
+    <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
 
-<!-- App Wrapper -->
-<div class="app-wrapper">
-    <!-- Incluir el menú -->
-    <div th:replace="menu"></div>
+        <!-- App Wrapper -->
+        <div class="app-wrapper">
+            <!-- Incluir el menú -->
+            <div th:replace="menu"></div>
 
-    <!-- Contenido principal -->
-    <main class="app-main">
+            <!-- Contenido principal -->
+            <main class="app-main">
 
-        <div class="container mt-4">
-            <form action="/save2" method="POST" class="col-sm-5">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>ENLISTAR CURSOS O PROYECTOS</h4>
-                    </div>
-                    <div class="card-body">
+                <div class="container mt-4">
+                    <form action="/save2" method="POST" class="col-sm-5">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>ENLISTAR PRÓXIMOS PROYECTOS</h4>
+                            </div>
+                            <div class="card-body">
 
-                        <div class="form-group">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" class="form-control" required>
+                                <div class="form-group">
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" id="nombre" name="nombre" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>LISTA</label>
+                                    <select name="nomLista" class="form-control">
+                                        <option th:each="opcion : ${opciones}"
+                                                th:value="${opcion}"
+                                                th:text="${opcion}"
+                                                th:selected="${opcion == proyInteres.nomLista}"></option>
+                                    </select>
+                                </div>
+
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-info">Guardar</button>
+                                    <a href="/guardados" class="btn btn-link">Regresar</a>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="lista">Lista:</label>
-                            <input type="text" id="nomLista" name="nomLista" class="form-control" required>
-                        </div>
-
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-info">Guardar</button>
-                        <a href="/guardados" class="btn btn-link">Regresar</a>
-                    </div>
+                    </form>
                 </div>
-            </form>
+
+            </main>
         </div>
 
-    </main>
-</div>
-
-<!-- Scripts al final del cuerpo -->
-</body>
+        <!-- Scripts al final del cuerpo -->
+    </body>
 </html>

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import S15.spring2.modelo.IContacto;
 import S15.spring2.modelo.IproyInt;
 import S15.spring2.modelo.proyInteres;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -117,6 +118,8 @@ public class ControlerContacto {
 
         if (optionalContacto.isPresent()) {
             modelo.addAttribute("contact", optionalContacto.get());
+            List<String> opciones = Arrays.asList("Proyectos 2024", "Proyectos 2023", "Nivel Principantes", "Nivel Medio", "Nivel Avanzado", "Maquetas, Dibujos y Planos");
+            modelo.addAttribute("opciones", opciones);
             return "Editar2";
         } else {
             // Manejar el caso donde el contacto no existe (puedes redirigir a una página de error o hacer otra acción apropiada)
@@ -132,11 +135,22 @@ public class ControlerContacto {
         return "redirect:/guardados";
     }
 
-    
-    @GetMapping("/newGuardado")
-    public String agregarGuardado(Model modelo) {
-        modelo.addAttribute("proyInteres", new proyInteres());
-        return "Agregar2";
+    @Controller
+    public class TuControlador {
+
+        @GetMapping("/newGuardado")
+        public String agregarGuardado(Model modelo) {
+            List<String> opciones = Arrays.asList(
+                    "Proyectos 2024", "Proyectos 2023",
+                    "Nivel Principantes", "Nivel Medio", "Nivel Avanzado",
+                    "Maquetas, Dibujos y Planos"
+            );
+            modelo.addAttribute("opciones", opciones);
+            modelo.addAttribute("proyInteres", new proyInteres()); // Inicializa proyInteres aquí
+            return "Agregar2"; // Nombre de tu plantilla Thymeleaf (Agregar2.html)
+        }
+
+        // Otros métodos de tu controlador, como el método para procesar el formulario
     }
 
     @PostMapping("/save2")
