@@ -25,10 +25,10 @@
                     </a>
                 </li>
                 <li class="nav-item d-none d-md-block">
-                    <a href="#" class="nav-link">Inicio</a>
+                    <a href="#" class="nav-link">Mensajes</a>
                 </li>
                 <li class="nav-item d-none d-md-block">
-                    <a href="#" class="nav-link">Contacto</a>
+                    <a href="#" class="nav-link">Borradores</a>
                 </li>
             </ul>
 
@@ -97,7 +97,7 @@
                 <a href="javascript:;" class="nav-link">
                     <i class="nav-icon fa-solid fa-table"></i>
                     <p>
-                        Mantenimiento
+                        OPERACIONES
                         <i class="nav-arrow fa-solid fa-angle-right"></i>
                     </p>
                 </a>
@@ -111,74 +111,12 @@
                     <li class="nav-item">
                         <a th:href="@{/guardados}" class="nav-link">
                             <i class="nav-icon fa-solid fa-book"></i>
-                            <p>Guardados</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a th:href="@{/ProyectoControl?opc=1}" class="nav-link">
-                            <i class="nav-icon fa-solid fa-house"></i>
-                            <p>Proyectos</p>
+                            <p>Borradores</p>
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="javascript:;" class="nav-link">
-                    <i class="fa-brands fa-searchengin"></i>
-                    <p>
-                        Consultas
-                        <i class="nav-arrow fa-solid fa-angle-right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a th:href="@{/vistas.admin/consultasCompra}" class="nav-link">
-                            <i class="nav-icon fa-solid fa-shop"></i>
-                            <p>Compras</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a th:href="@{/vistas.admin/consultasCurso}" class="nav-link">
-                            <i class="nav-icon fa-solid fa-book"></i>
-                            <p>Cursos</p>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a th:href="@{/vistas.admin/consultasProyecto}" class="nav-link">
-                            <i class="nav-icon fa-solid fa-shop"></i>
-                            <p>Proyectos</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="javascript:;" class="nav-link">
-                    <i class="fa-solid fa-chart-simple"></i>
-                    <p>GrÃ¡ficos</p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a th:href="@{/vistas.admin/graficoCompras}" class="nav-link">
-                            <i class="nav-icon fas fa-chart-pie"></i>
-                            <p>Reportes de Compras</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a th:href="@{/vistas.admin/graficoCursos}" class="nav-link">
-                            <i class="nav-icon fas fa-chart-area"></i>
-                            <p>Reporte de Cursos</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a th:href="@{/vistas.admin/graficoProyecto}" class="nav-link">
-                            <i class="nav-icon fas fa-chart-bar"></i>
-                            <p>Cantidad de Proyectos</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+         
         </ul>
         <!-- end::Sidebar Menu -->
     </nav>
