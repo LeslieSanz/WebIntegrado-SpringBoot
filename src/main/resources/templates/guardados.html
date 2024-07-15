@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>Usuarios</title>
+        <title>Guardados</title>
         <link rel="icon" th:href="@{/img/LOGO AZUL.png}" type="image/png">
         <!-- Otros recursos como CSS y scripts -->
     </head>
@@ -19,56 +19,60 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h3 class="mb-0">Mensajes enviados</h3>
+                                <h3 class="mb-0">Proyectos Guardados</h3>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-end">
-                                    <li class="breadcrumb-item"><a href="#">Mensaje</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Enviados</li>
+                                    <li class="breadcrumb-item"><a href="#">Guardados</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Proyectos</li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
 
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Todos los mensajes enviados al sitio web</h3>
-                                <a href="/new" class="btn btn-primary float-end">AGREGAR MENSAJE</a>
+                                <h3 class="card-title">Información básica</h3>
+                                <a href="#" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#agregarUsuario">Agregar usuario</a>
                             </div>
                             <div class="card-body">
                                 <table id="tablax" class="table table-striped table-hover">
                                     <thead class="bg-dark-subtle">
                                         <tr>
                                             <th>N°</th>
-                                            <th>Asunto</th>
-                                            <th>Mensaje</th>
-                                            <th>Fecha</th>
+                                            <th>Proyecto/Curso</th>
+                                            <th>Lista</th>
                                             <th>Editar</th>
                                             <th>Eliminar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="contact : ${listado}">
-                                            <td th:text="${contact.id}"></td>
-                                            <td th:text="${contact.nombre}"></td>
-                                            <td th:text="${contact.mensaje}"></td>
-                                            <td th:text="${contact.fecha}"></td>
+
+                                        <tr th:each="guardado : ${listado2}">
+                                            <td th:text="${guardado.id}"></td>
+                                            <td th:text="${guardado.nombre}"></td>
+                                            <td th:text="${guardado.nomLista}"></td>
                                             <td>
-                                                <a th:href="@{/editar/{id}(id=${contact.id})}" class="btn btn-warning btn-sm edit-user">
+                                                <a  class="btn btn-warning btn-sm edit-user">
                                                     <i class="fas fa-edit"></i> 
                                                 </a>
+
                                             </td>
+
+
                                             <td>
-                                                <form action="/eliminar" method="post" style="display:inline;">
-                                                    <input type="hidden" name="ids" th:value="${contact.id}" />
+                                                <form action="/eliminar2" method="post" style="display:inline;">
+                                                    <input type="hidden" name="ids" th:value="${guardado.id}" />
                                                     <button type="submit" class="btn btn-danger btn-sm">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </form>
                                             </td>
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -76,6 +80,10 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
             </main>
         </div>
 
