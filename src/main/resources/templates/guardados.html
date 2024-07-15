@@ -36,8 +36,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Información básica</h3>
-                                <a href="#" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#agregarUsuario">Agregar usuario</a>
+                                <h3 class="card-title">GUARDAS TUS PROYECTOS EN LAS LISTAS QUE DESEES</h3>
+                                <a href="/newGuardado" class="btn btn-primary float-end" >Listar Cursos o Proyectos</a>
                             </div>
                             <div class="card-body">
                                 <table id="tablax" class="table table-striped table-hover">
@@ -52,21 +52,20 @@
                                     </thead>
                                     <tbody>
 
-                                        <tr th:each="guardado : ${listado2}">
-                                            <td th:text="${guardado.id}"></td>
-                                            <td th:text="${guardado.nombre}"></td>
-                                            <td th:text="${guardado.nomLista}"></td>
-                                            <td>
-                                                <a  class="btn btn-warning btn-sm edit-user">
+                                        <tr th:each="contact : ${listado2}">
+                                            <td th:text="${contact.id}"></td>
+                                            <td th:text="${contact.nombre}"></td>
+                                            <td th:text="${contact.nomLista}"></td>
+                                             <td>
+                                                <a th:href="@{/editar2/{id}(id=${contact.id})}" class="btn btn-warning btn-sm edit-user">
                                                     <i class="fas fa-edit"></i> 
                                                 </a>
-
                                             </td>
 
 
                                             <td>
                                                 <form action="/eliminar2" method="post" style="display:inline;">
-                                                    <input type="hidden" name="ids" th:value="${guardado.id}" />
+                                                    <input type="hidden" name="ids" th:value="${contact.id}" />
                                                     <button type="submit" class="btn btn-danger btn-sm">
                                                         <i class="fas fa-trash"></i>
                                                     </button>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import S15.spring2.modelo.IContacto;
 import S15.spring2.modelo.IproyInt;
+import S15.spring2.modelo.proyInteres;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -108,6 +109,41 @@ public class ControlerContacto {
     public String mostrarGuardados(Model modelo) {
         modelo.addAttribute("listado2", servicio2.findAll());
         return "guardados";
+    }
+
+    @GetMapping("/editar2/{id}")
+    public String editar2(@PathVariable int id, Model modelo) {
+        Optional<proyInteres> optionalContacto = servicio2.findById(id);
+
+        if (optionalContacto.isPresent()) {
+            modelo.addAttribute("contact", optionalContacto.get());
+            return "Editar2";
+        } else {
+            // Manejar el caso donde el contacto no existe (puedes redirigir a una página de error o hacer otra acción apropiada)
+            return "redirect:/guardados"; // Ejemplo de redirección a la lista de usuarios
+        }
+    }
+
+    @PostMapping("/editar2")
+    public String guardarEdicion2(@ModelAttribute("contact") proyInteres contact) {
+        // Lógica para guardar los cambios en la base de datos
+        servicio2.save(contact);
+        // Redirige a la página de usuarios después de guardar
+        return "redirect:/guardados";
+    }
+
+    
+    @GetMapping("/newGuardado")
+    public String agregarGuardado(Model modelo) {
+        modelo.addAttribute("proyInteres", new proyInteres());
+        return "Agregar2";
+    }
+
+    @PostMapping("/save2")
+    public String saveGuardado(@ModelAttribute("proyInteres") proyInteres proyecto) {
+        // Lógica para guardar el proyecto
+        servicio2.save(proyecto);
+        return "redirect:/guardados";
     }
 
 }
